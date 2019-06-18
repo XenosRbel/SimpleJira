@@ -1,0 +1,19 @@
+<h1>Persons#index</h1>
+<p>Find me in app/views/persons/index.html.erb</p>
+
+<%= link_to 'New user', new_person_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Summary</th>
+    <th>Start date</th>
+    <th>End date</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+    </tr>
+  <% end %>
+</table>
