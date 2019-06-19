@@ -1,0 +1,31 @@
+<h2>title</h2>
+<%= @task.title %>
+
+<h2>content</h2>
+<%= @task.content %>
+
+<h2>comments</h2>
+<%= @task.comments %>
+
+<h2>status</h2>
+<%= @task.status %>
+
+<h2>start_date</h2>
+<%= @task.start_date %>
+
+<h2>due_date</h2>
+<%= @task.due_date %>
+
+<h2>estimation</h2>
+<%= @task.estimation %>
+
+<h2>created_at</h2>
+<%= @task.created_at %>
+
+<h2>updated_at</h2>
+<%= @task.updated_at %>
+
+<br/>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

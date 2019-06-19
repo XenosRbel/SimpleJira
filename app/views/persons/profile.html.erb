@@ -1,0 +1,29 @@
+<h1>Persons#profile</h1>
+<p>Find me in app/views/persons/profile.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>password</th>
+    <th>first_name</th>
+    <th>last_name</th>
+    <th>admin</th>
+    <th>created_at</th>
+    <th>updated_at</th>
+    <th>email</th>
+  </tr>
+
+  <tr>
+    <td><%= current_user.id %></td>
+    <td><%= current_user.password %></td>
+    <td><%= current_user.first_name %></td>
+    <td><%= current_user.last_name %></td>
+    <td><%= current_user.admin %></td>
+    <td><%= current_user.created_at %></td>
+    <td><%= current_user.updated_at %></td>
+    <td><%= current_user.email %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_person_path(current_user) %> |
+<%= link_to 'Back', persons_path %>

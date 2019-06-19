@@ -5,5 +5,13 @@
 
 <br/>
 
+<h2>Users</h2>
+<%= render @team.users%>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<br/>
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

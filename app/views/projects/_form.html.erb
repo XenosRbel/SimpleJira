@@ -3,11 +3,24 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
-
   <p>
     <%= form.label :summary %><br>
     <%= form.text_area :summary %>
   </p>
+  <p>
+    <%= form.label :start_date %><br>
+    <%= form.date_field :start_date %>
+  </p>
+  <p>
+    <%= form.label :end_date %><br>
+    <%= form.date_field :end_date %>
+  </p>
+
+  <%= form.select(:tasks) do %>
+    <% @task_list.each do |l| -%>
+      <%= content_tag(:option, l.title, value: l.id) %>
+    <% end %>
+  <% end %>
 
   <p>
     <%= form.submit %>
