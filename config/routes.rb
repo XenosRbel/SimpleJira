@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'persons/profile'
 
-  # devise_for :user
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
   resources :user
 
   resources :teams do
-    resources :user
+    resources :persons
   end
   resources :persons
 

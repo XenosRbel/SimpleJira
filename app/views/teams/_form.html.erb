@@ -4,7 +4,7 @@
     <%= form.text_field :name %>
   </p>
 
-  <%= form.select :users, :multiple => true %>
+  <%= form.collection_select :user, User.order(:email), :id, :email, include_blank: true %>
 
   <p>
     <%= form.submit %>
