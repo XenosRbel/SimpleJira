@@ -1,0 +1,27 @@
+<table>
+  <tr>
+    <th>title</th>
+    <th>content</th>
+    <th>comments</th>
+    <th>status</th>
+    <th>start_date</th>
+    <th>due_date</th>
+    <th>estimation</th>
+    <th>created_at</th>
+    <th>updated_at</th>
+  </tr>
+
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.content %></td>
+      <td><%= task.comments %></td>
+      <td><%= task.status %></td>
+      <td><%= task.start_date %></td>
+      <td><%= task.due_date %></td>
+      <td><%= task.estimation %></td>
+      <td><%= task.created_at %></td>
+      <td><%= task.updated_at %></td>
+    </tr>
+  <% end %>
+</table>

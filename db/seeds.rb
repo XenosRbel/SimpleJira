@@ -17,7 +17,12 @@
 #   )
 # end
 #
-# User.create(
-#         name: 'Admin',
-#         admin: 1
-# )
+300.times do
+  User.create(
+      email: Faker::Internet.email,
+      admin: 0,
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name ,
+      password: Faker::Internet.password,
+      )
+end
