@@ -25,6 +25,9 @@
 <h2>updated_at</h2>
 <%= @task.updated_at %>
 
+<h2>Users</h2>
+<%= render 'persons/user' %>
+
 <br/>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

@@ -9,6 +9,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @user = @task.user
   end
 
   def new
@@ -52,6 +53,7 @@ class TasksController < ApplicationController
                                    :due_date,
                                    :estimation,
                                    :created_at,
-                                   :updated_at)
+                                   :updated_at,
+                                   :user_id)
     end
 end
