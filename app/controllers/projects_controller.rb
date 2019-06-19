@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @team = @project.team
   end
 
   def new
@@ -45,6 +46,10 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :summary, :start_date, :end_date)
+    params.require(:project).permit(:name,
+                                    :summary,
+                                    :start_date,
+                                    :end_date,
+                                    :team_id)
   end
 end

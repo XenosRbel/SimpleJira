@@ -26,3 +26,9 @@
       password: Faker::Internet.password,
       )
 end
+
+15.times do
+  Team.create(
+      name: Faker::TvShows::SiliconValley.company
+      )
+end
