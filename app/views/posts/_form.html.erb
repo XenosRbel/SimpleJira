@@ -17,10 +17,9 @@
     <%= post.label :content %><br>
     <%= post.text_field :content %>
   </p>
-  <p>
-    <%= post.label :comments %><br>
-    <%= post.text_field :comments %>
-  </p>
+
+  <%= post.collection_select :project_id, Project.order(:id), :id, :name, include_blank: true %>
+
   <p>
     <%= post.submit %>
   </p>

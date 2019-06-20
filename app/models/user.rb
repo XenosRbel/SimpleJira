@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   belongs_to :team, optional: true
   has_many :tasks
+  has_many :comments
+  enum admin: %i[User Admin]
 end

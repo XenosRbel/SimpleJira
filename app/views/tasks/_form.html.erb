@@ -26,7 +26,7 @@
   </p>
   <p>
     <%= form.label :status %><br>
-    <%= form.text_field :status %>
+    <%= form.select :status, Task.statuses.keys.to_a%>
   </p>
   <p>
     <%= form.label :start_date %><br>
@@ -38,7 +38,7 @@
   </p>
   <p>
     <%= form.label :estimation %><br>
-    <%= form.text_field :estimation %>
+    <%= form.select :estimation, Task.estimations.keys.to_a%>
   </p>
   <p>
     <%= form.label :user %><br>

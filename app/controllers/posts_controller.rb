@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    puts "Commetns #{@post.comments.size}"
   end
 
   def new
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   private
-    def posts_params
-      params.require(:post).permit(:content, :comments)
-    end
+  def posts_params
+    params.require(:post).permit(:content, :project_id)
+  end
 end

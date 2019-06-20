@@ -2,21 +2,25 @@
   <h1>Name:</h1>
   <%= @project.name %>
 </p>
-
 <p>
   <h1>Summary:</h1>
   <%= @project.summary %>
 </p>
+<p>
+  <h1>Start date</h1>
+  <%= @project.start_date %>
 
-<h1>Start date</h1>
-<%= @project.start_date %>
-
-<h1>End_date:</h1>
-<%= @project.end_date%>>
-<p></p>
-
-<h2>Team</h2>
-<%= render 'teams/team' %>
+  <h1>End_date:</h1>
+  <%= @project.end_date%>>
+</p>
+<p>
+  <h2>Team:</h2>
+  <%= render 'teams/team' %>
+</p>
+<p>
+  <h2>Posts:</h2>
+  <%= render @project.posts %>
+</p>
 
 <br/>
 
