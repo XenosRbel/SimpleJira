@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'persons/profile'
 
+  get 'tasks/:status', to: 'tasks#index'
+  get 'tasks/person/:user_id', to: 'tasks#task_on_user', as: :task_on_user
+
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
@@ -16,7 +19,9 @@ Rails.application.routes.draw do
   resources :tasks
   resources :posts
 
-  # resources :user
+  resources :persons do
+    resources :tasks
+  end
 
   resources :persons
 

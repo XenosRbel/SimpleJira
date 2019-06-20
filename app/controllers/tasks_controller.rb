@@ -1,8 +1,25 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    if params[:person_id]
+      @tasks = User.find(params[:person_id]).tasks
+    elsif params[:status]
+      @tasks = Task.where(status: params[:status])
+    else
+      @tasks = Task.all
+    end
 
     authorize! :read, @tasks
+  end
+
+  def task_on_user
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @tasks = @user.tasks
+    end
+  end
+
+  def asda
+
   end
 
   def edit
