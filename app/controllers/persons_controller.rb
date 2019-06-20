@@ -46,4 +46,20 @@ class PersonsController < ApplicationController
   def user_params
     params.require(:user).permit(:admin, :first_name, :last_name, :email)
   end
+
+  def authorize
+    # user = User.find(current_user.id)
+    # puts "ASDADASD #{user.admin}"
+    # puts user.admin == :Admin
+    # puts current_user.admin
+    # puts User.admins[current_user.admin] == User.admins[:User]
+    #
+    # if User.admins[current_user.admin] == User.admins[:User]
+    #   render plain: "No access for you!"
+    # end
+
+    # if !current_user.has_role? :admin, current_user
+    #   render plain: "No access for you!"
+    # end
+  end
 end

@@ -1,7 +1,10 @@
 <h1>Projects#index</h1>
 <p>Find me in app/views/projects/index.html.erb</p>
 
-<%= link_to 'New project', new_project_path %>
+<% if can? :manage, @projects %>
+  <%= link_to 'New project', new_project_path %>
+<% end %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -17,9 +20,12 @@
       <td><%= project.start_date %></td>
       <td><%= project.end_date %></td>
       <td><%= link_to 'Show', project_path(project) %></td>
-      <td><%= link_to 'Edit', edit_project_path(project) %></td>
-      <td><%= link_to 'Destroy', project_path(project), method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
+
+      <% if can? :manage, @projects %>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project_path(project), method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

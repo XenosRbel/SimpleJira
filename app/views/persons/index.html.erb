@@ -1,7 +1,9 @@
 <h1>Persons#index</h1>
 <p>Find me in app/views/persons/index.html.erb</p>
 
-<%= link_to 'New user', new_person_path %>
+<% if can? :manage, @users %>
+  <%= link_to 'New user', new_person_path %>
+<% end %>
 
 <table>
   <tr>
@@ -27,9 +29,12 @@
       <td><%= user.encrypted_password %></td>
 
       <td><%= link_to 'Show', person_path(user) %></td>
-      <td><%= link_to 'Edit', edit_person_path(user) %></td>
-      <td><%= link_to 'Destroy', person_path(user), method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
+
+      <% if can? :manage, @users %>
+        <td><%= link_to 'Edit', edit_person_path(user) %></td>
+        <td><%= link_to 'Destroy', person_path(user), method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
