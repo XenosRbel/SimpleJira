@@ -9,7 +9,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    puts "Commetns #{@post.comments.size}"
   end
 
   def new

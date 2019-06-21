@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+  get 'reports/index'
   devise_for :users
   get 'teams/index'
   get 'team/index'
   get 'home/index'
   get 'persons/profile'
 
-  get 'tasks/:status', to: 'tasks#index'
-  get 'tasks/person/:user_id', to: 'tasks#task_on_user', as: :task_on_user
+  get 'tasks/status/:status', to: 'tasks#index', as: 'task_by_filter'
 
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :tasks
   resources :posts
+  resources :reports
 
   resources :persons do
     resources :tasks
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
         resources :tasks
       end
     end
+    resources :tasks
   end
 
   root :to => "home#index"

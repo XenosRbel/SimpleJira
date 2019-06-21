@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :comments
   enum admin: %i[User Admin]
+
+  def self.search(search)
+    where("email LIKE ?", "%#{search}%")
+  end
 end

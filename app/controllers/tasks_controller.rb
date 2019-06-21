@@ -4,6 +4,17 @@ class TasksController < ApplicationController
       @tasks = User.find(params[:person_id]).tasks
     elsif params[:status]
       @tasks = Task.where(status: params[:status])
+    elsif params[:project_id]
+      projects = Project.find(params[:project_id])
+
+      users = projects.team.users
+
+      @tasks = []
+      users.each do |user|
+        user.tasks.each do |task|
+          @tasks.push(task)
+        end
+      end
     else
       @tasks = Task.all
     end
@@ -29,8 +40,13 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
-    @user = @task.user
+    if params[:person_id]
+      #sad
+    elsif params[:id]
+      @task = Task.find(params[:id])
+      @user = @task.user
+    end
+
 
     authorize! :show, @tasks
   end

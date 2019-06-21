@@ -1,0 +1,52 @@
+<h1>Reports#index</h1>
+<p>Find me in app/views/reports/index.html.erb</p>
+
+<h1>Show task count by filter</h1>
+<div>
+  <%= form_tag(reports_path, :method => "get", id: "filter-task-form") do %>
+    <%= select_tag(:status, options_for_select(Task.statuses.keys.to_a), include_blank: true) %>
+    <%= hidden_field_tag :is_filtered_tasks, :is_filtered_tasks%>
+    <%= submit_tag "Search"%>
+  <% end %>
+
+  <%if params[:is_filtered_tasks] %>
+    <p>
+      Tasks with status <%= params[:status].to_s%>, <%= @tasks.size%> pcs. |
+      <%= link_to 'Show', task_by_filter_path(params[:status]) %>
+    </p>
+  <% end %>
+</div>
+
+<h1>Show task count for user</h1>
+<div>
+  <%= form_tag(reports_path, :method => "get", id: "filter-task-user-form") do %>
+    <%= select_tag(:user_id, options_for_select( User.all.map{ |u| [ u.email, u.id ] }, :id), include_blank: true) %>
+
+    <%= hidden_field_tag :is_filtered_user_tasks, :is_filtered_user_tasks%>
+    <%= submit_tag "Search"%>
+  <% end %>
+
+  <%if params[:is_filtered_user_tasks] %>
+    <p>
+      Tasks for user <%= User.find(params[:user_id]).email %>, <%= @tasks.size%> pcs. |
+      <%= link_to 'Show', person_tasks_path(params[:user_id]) %>
+    </p>
+  <% end %>
+</div>
+
+<h1>Show task count for project</h1>
+<div>
+  <%= form_tag(reports_path, :method => "get", id: "filter-task-project-form") do %>
+    <%= select_tag(:project_id, options_for_select( Project.all.map{ |u| [ u.name, u.id ] }, :id), include_blank: true) %>
+
+    <%= hidden_field_tag :is_filtered_project_tasks, :is_filtered_project_tasks%>
+    <%= submit_tag "Search"%>
+  <% end %>
+
+  <%if params[:is_filtered_project_tasks] %>
+    <p>
+      Tasks count for project <%= Project.find(params[:project_id]).name %>, <%= @tasks.size%> pcs. |
+      <%= link_to 'Show', project_tasks_path(params[:project_id]) %>
+    </p>
+  <% end %>
+</div>
