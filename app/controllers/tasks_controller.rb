@@ -47,7 +47,6 @@ class TasksController < ApplicationController
       @user = @task.user
     end
 
-
     authorize! :show, @tasks
   end
 

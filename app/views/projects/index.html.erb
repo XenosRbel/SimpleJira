@@ -19,6 +19,7 @@
       <td><%= project.summary %></td>
       <td><%= project.start_date %></td>
       <td><%= project.end_date %></td>
+      <td><%= project.id%></td>
       <td><%= link_to 'Show', project_path(project) %></td>
 
       <% if can? :manage, @projects %>

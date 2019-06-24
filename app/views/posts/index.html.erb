@@ -19,6 +19,7 @@
       <td><%= post.content %></td>
       <td><%= post.created_at %></td>
       <td><%= post.updated_at %></td>
+      <td><%= post.project_id %></td>
       <td><%= link_to 'Show', post_path(post) %></td>
 
       <% if can? :manage, @posts %>
