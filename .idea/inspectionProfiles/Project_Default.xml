@@ -1,0 +1,61 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="ConvertOneChainedExprToSafeNavigation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RailsParamDefResolve" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RbenvGemsetsConfig" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="Rubocop" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyArgCount" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyArgumentParentheses" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyAssignmentExpressionInConditionalInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyBlockToMethodReference" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyCaseWithoutElseBlockInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyClassMethodNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyClassModuleNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyClassVariableNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyClassVariableUsageInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyConstantNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyControlFlowConversionInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDeadCode" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDeprecatedSyntaxInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDuplicatedKeysInHashInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyDynamicConstAssignment" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyEmptyElseBlockInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyEmptyRescueBlockInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyExpressionInStringInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyGlobalVariableNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyHashKeysTypesInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyIfCanBeCaseInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyInstanceMethodNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyInstanceVariableNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyInstanceVariableToStringInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyInterpreter" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyJumpError" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyLocalVariableNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyModifiedFrozenObject" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyModuleAsSuperclassInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyNilAnalysis" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyParameterNamingConvention" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyParenthesesAfterMethodCallInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyParenthesesAroundConditionInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyQuotedStringsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyResolve" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="warnImplicitResults" value="false" />
+    </inspection_tool>
+    <inspection_tool class="RubyScope" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyShouldaUnsupportedTestFile" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubySimplifyBooleanInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyStringKeysInHashInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubySuperCallWithoutSuperclassInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyThenInMultilineConditionalInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyTooManyInstanceVariablesInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyTooManyMethodsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnlessWithElseInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnnecessaryReturnStatement" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnnecessaryReturnValue" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnnecessarySemicolon" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyUnusedLocalVariable" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="RubyWrongHash" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="YARDTagsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+  </profile>
+</component>

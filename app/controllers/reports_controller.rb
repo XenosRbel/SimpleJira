@@ -8,9 +8,20 @@ class ReportsController < ApplicationController
       project_report_respond
     end
 
-    # results = ActiveRecord::Base.connection.execute("")
-    # result = results.as_json
-    # @result = result
+    comment_count = ActiveRecord::Base.connection.execute("select posts.project_id, count(comments.id) from posts
+                                                    inner join comments on posts.id = comments.post_id group by posts.project_id;")
+
+    post_count = ActiveRecord::Base.connection.execute("select project_id, count(*) as p_count from posts group by project_id;")
+
+    @statistics = []
+    comment_count.each_with_index do |value, i| value
+      stat = ProjectStatistics.new
+      stat.comments_count = value["count"]
+      stat.post_count = post_count[i]["p_count"]
+      stat.project= value["project_id"]
+
+      @statistics.push(stat)
+    end
   end
 
   private

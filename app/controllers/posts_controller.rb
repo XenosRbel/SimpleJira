@@ -43,6 +43,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def posts_params
     params.require(:post).permit(:content, :project_id)
   end
