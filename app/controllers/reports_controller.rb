@@ -15,12 +15,12 @@ class ReportsController < ApplicationController
 
     @statistics = []
     comment_count.each_with_index do |value, i| value
-      stat = ProjectStatistics.new
-      stat.comments_count = value["count"]
-      stat.post_count = post_count[i]["p_count"]
-      stat.project= value["project_id"]
+    stat = ProjectStatistics.new
+    stat.comments_count = value["count"]
+    stat.post_count = post_count[i]["p_count"]
+    stat.project = Project.find(value["project_id"]).name
 
-      @statistics.push(stat)
+    @statistics.push(stat)
     end
   end
 
