@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     team_id, teams.name from projects
     inner join teams on projects.team_id = teams.id;').as_json
 
-    @project_where_user_havnt_task = ActiveRecord::Base.connection.execute('select * from (
+    project_where_user_havnt_task = ActiveRecord::Base.connection.execute('select * from (
                select projects.id from projects
                                  inner join teams on projects.team_id = teams.id
                                  inner join users on teams.id = users.team_id
@@ -15,13 +15,18 @@ class ProjectsController < ApplicationController
     ) as t
     group by t.id').as_json
 
+    @project_where_user_havnt_task = []
+    project_where_user_havnt_task.each do |value|
+      @project_where_user_havnt_task.push(Project.find(value['id']).name)
+    end
+
     @c_projects_with_task = ActiveRecord::Base.connection.execute('select projects.name, projects.start_date, count(tasks.id) as task_count from projects
       inner join teams on projects.team_id = teams.id
       inner join users on teams.id = users.team_id
       inner join tasks on users.id = tasks.user_id
     group by projects.id
     having count(tasks.id) > 0
-    order by task_count desc, projects.start_date;').as_json
+    order by task_count desc, projects.start_date;').as_json.size
   end
 
   def edit

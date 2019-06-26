@@ -5,8 +5,18 @@
   <%= link_to 'New project', new_project_path %>
 <% end %>
 <p>
-  <%= @project_where_user_havnt_task %>
-  <%= @c_projects_with_task %>
+<h3>project_where_user_haven't_task</h3>
+<table>
+  <% @project_where_user_havnt_task.each do |value| %>
+    <tr>
+      <td><%= value %></td>
+  <% end %>
+</table>
+
+<p>
+  <%= @c_projects_with_task %> pcs. projects with tasks
+</P>
+
 <h2>Teams involved</h2>
 <table>
   <% @teams_involved.each do |stat| %>
