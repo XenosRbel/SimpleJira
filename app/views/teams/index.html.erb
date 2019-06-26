@@ -7,13 +7,11 @@
 
 <table>
   <tr>
-    <th>ID</th>
     <th>Name</th>
   </tr>
 
   <% @teams.each do |team| %>
     <tr>
-      <td><%= team.id %></td>
       <td><%= team.name %></td>
       <td><%= link_to 'Show', team_path(team) %></td>
 

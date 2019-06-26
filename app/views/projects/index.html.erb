@@ -4,7 +4,17 @@
 <% if can? :manage, @projects %>
   <%= link_to 'New project', new_project_path %>
 <% end %>
-
+<p>
+  <%= @project_where_user_havnt_task %>
+  <%= @c_projects_with_task %>
+<h2>Teams involved</h2>
+<table>
+  <% @teams_involved.each do |stat| %>
+    <tr>
+      <td><%= stat['name'] %></td>
+  <% end %>
+</table>
+</p>
 <table>
   <tr>
     <th>Name</th>
@@ -19,7 +29,6 @@
       <td><%= project.summary %></td>
       <td><%= project.start_date %></td>
       <td><%= project.end_date %></td>
-      <td><%= project.id%></td>
       <td><%= link_to 'Show', project_path(project) %></td>
 
       <% if can? :manage, @projects %>

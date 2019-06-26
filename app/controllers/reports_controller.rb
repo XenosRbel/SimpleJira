@@ -8,20 +8,7 @@ class ReportsController < ApplicationController
       project_report_respond
     end
 
-    comment_count = ActiveRecord::Base.connection.execute("select posts.project_id, count(comments.id) from posts
-                                                    inner join comments on posts.id = comments.post_id group by posts.project_id;")
-
-    post_count = ActiveRecord::Base.connection.execute("select project_id, count(*) as p_count from posts group by project_id;")
-
-    @statistics = []
-    comment_count.each_with_index do |value, i| value
-    stat = ProjectStatistics.new
-    stat.comments_count = value["count"]
-    stat.post_count = post_count[i]["p_count"]
-    stat.project = Project.find(value["project_id"]).name
-
-    @statistics.push(stat)
-    end
+    build_projects_statistics
   end
 
   private
@@ -57,6 +44,24 @@ class ReportsController < ApplicationController
     respond_to do |format|
       format.html { render(text: 'not implemented') }
       format.js { render js_script }
+    end
+  end
+
+  def build_projects_statistics
+    comment_count = ActiveRecord::Base.connection.execute("select posts.project_id, count(comments.id) from posts
+                                                    inner join comments on posts.id = comments.post_id group by posts.project_id;")
+
+    post_count = ActiveRecord::Base.connection.execute("select project_id, count(*) as p_count from posts group by project_id;")
+
+    @statistics = []
+    comment_count.each_with_index do |value, i|
+      value
+      stat = ProjectStatistics.new
+      stat.comments_count = value["count"]
+      stat.post_count = post_count[i]["p_count"]
+      stat.project = Project.find(value["project_id"]).name
+
+      @statistics.push(stat)
     end
   end
 end

@@ -22,6 +22,11 @@
   <%= render @project.posts %>
 </p>
 
+<p>
+<h2>Tasks:</h2>
+<%= render 'tasks/task_list' %>
+</p>
+
 <br/>
 
 <% if can? :edit, @projects %>

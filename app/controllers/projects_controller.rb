@@ -1,6 +1,27 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+
+    @teams_involved = ActiveRecord::Base.connection.execute('select distinct
+    team_id, teams.name from projects
+    inner join teams on projects.team_id = teams.id;').as_json
+
+    @project_where_user_havnt_task = ActiveRecord::Base.connection.execute('select * from (
+               select projects.id from projects
+                                 inner join teams on projects.team_id = teams.id
+                                 inner join users on teams.id = users.team_id
+                                 left join tasks on users.id = tasks.user_id
+               where tasks.user_id is null
+    ) as t
+    group by t.id').as_json
+
+    @c_projects_with_task = ActiveRecord::Base.connection.execute('select projects.name, projects.start_date, count(tasks.id) as task_count from projects
+      inner join teams on projects.team_id = teams.id
+      inner join users on teams.id = users.team_id
+      inner join tasks on users.id = tasks.user_id
+    group by projects.id
+    having count(tasks.id) > 0
+    order by task_count desc, projects.start_date;').as_json
   end
 
   def edit
@@ -11,6 +32,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @team = @project.team
+    @tasks = @project.tasks
   end
 
   def new
@@ -45,6 +67,7 @@ class ProjectsController < ApplicationController
   end
 
   private
+
   def project_params
     params.require(:project).permit(:name,
                                     :summary,

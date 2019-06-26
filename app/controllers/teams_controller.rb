@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
+      bind_user_to_team
       redirect_to @team
     else
       render 'new'
@@ -30,11 +31,9 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @user = User.find(params[:team][:user])
 
     if @team.update(team_params)
-      @user.team_id = params[:id]
-      @user.save
+      bind_user_to_team
       redirect_to teams_path
     else
       render 'edit'
@@ -49,6 +48,15 @@ class TeamsController < ApplicationController
   end
 
   private
+
+  def bind_user_to_team
+    unless params[:team][:user].blank?
+      @user = User.find(params[:team][:user])
+      @user.team_id = params[:id]
+      @user.save
+    end
+  end
+
   def team_params
     params.require(:team).permit(:name)
   end

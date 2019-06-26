@@ -96,6 +96,7 @@ class TasksController < ApplicationController
                                    :estimation,
                                    :created_at,
                                    :updated_at,
-                                   :user_id)
+                                   :user_id,
+                                   :project_id)
     end
 end

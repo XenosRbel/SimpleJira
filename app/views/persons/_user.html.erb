@@ -6,8 +6,8 @@
   </tr>
 
     <tr>
-      <td><%= @user.email %></td>
-      <td><%= @user.first_name %></td>
-      <td><%= @user.last_name %></td>
+      <td><%= @user.try(:email) %></td>
+      <td><%= @user.try(:first_name) %></td>
+      <td><%= @user.try(:last_name) %></td>
     </tr>
 </table>

@@ -45,6 +45,10 @@
     <%= form.collection_select :user_id, User.order(:email), :id, :email, include_blank: true %>
   </p>
   <p>
+    <%= form.label :project %>
+    <%= form.collection_select :project_id, Project.order(:id), :id, :name, include_blank: true %>
+  </p>
+  <p>
     <%= form.submit %>
   </p>
 
