@@ -5,18 +5,28 @@ class PersonsController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    if current_user.id != @user.id
+      authorize! :edit, @user
+    end
   end
 
   def show
     @user = User.find(params[:id])
+
+    authorize! :read, @user
   end
 
   def new
     @user = User.new
+
+    authorize! :new, @user
   end
 
   def create
     @user = User.new(user_params)
+
+    authorize! :create, @user
 
     if @user.save
       redirect_to @user
@@ -45,21 +55,5 @@ class PersonsController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:admin, :first_name, :last_name, :email)
-  end
-
-  def authorize
-    # user = User.find(current_user.id)
-    # puts "ASDADASD #{user.admin}"
-    # puts user.admin == :Admin
-    # puts current_user.admin
-    # puts User.admins[current_user.admin] == User.admins[:User]
-    #
-    # if User.admins[current_user.admin] == User.admins[:User]
-    #   render plain: "No access for you!"
-    # end
-
-    # if !current_user.has_role? :admin, current_user
-    #   render plain: "No access for you!"
-    # end
   end
 end
