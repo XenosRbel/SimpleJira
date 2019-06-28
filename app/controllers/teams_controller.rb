@@ -5,21 +5,32 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+
+    authorize! :edit, @team
+
     @user_list = User.all
   end
 
   def show
     @team = Team.find(params[:id])
+
+    authorize! :show, @team
+
     @users = @team.users
   end
 
   def new
     @team = Team.new
+
+    authorize! :new, @team
+
     @user_list = User.all
   end
 
   def create
     @team = Team.new(team_params)
+
+    authorize! :create, @team
 
     if @team.save
       bind_user_to_team
@@ -32,6 +43,8 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
+    authorize! :update, @team
+
     if @team.update(team_params)
       bind_user_to_team
       redirect_to teams_path
@@ -42,6 +55,9 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
+
+    authorize! :destroy, @team
+
     @team.destroy
 
     redirect_to teams_path

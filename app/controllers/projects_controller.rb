@@ -27,25 +27,37 @@ class ProjectsController < ApplicationController
     group by projects.id
     having count(tasks.id) > 0
     order by task_count desc, projects.start_date;').as_json.size
+
+    authorize! :read, @projects
   end
 
   def edit
     @project = Project.find(params[:id])
+
+    authorize! :edit, @project
+
     @task_list = Task.all
   end
 
   def show
     @project = Project.find(params[:id])
+
+    authorize! :show, @project
+
     @team = @project.team
     @tasks = @project.tasks
   end
 
   def new
     @project = Project.new
+
+    authorize! :new, @project
   end
 
   def create
     @project = Project.new(project_params)
+
+    authorize! :create, @project
 
     if @project.save
       redirect_to @project
@@ -57,6 +69,8 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
+    authorize! :update, @project
+
     if @project.update(project_params)
       redirect_to projects_path
     else
@@ -66,6 +80,9 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
+
+    authorize! :destroy, @project
+
     @project.destroy
 
     redirect_to projects_path

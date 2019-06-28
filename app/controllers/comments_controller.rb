@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
 
+    authorize! :read, @post
+
     build_comment_for_post.save
     redirect_to post_path(@post)
   end

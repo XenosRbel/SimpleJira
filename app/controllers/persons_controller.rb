@@ -38,6 +38,10 @@ class PersonsController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    if current_user.id != @user.id
+	    authorize! :update, @user
+    end
+
     if @user.update(user_params)
       redirect_to persons_path
     else
@@ -47,6 +51,9 @@ class PersonsController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+
+    authorize! :destroy, @user
+
     @user.destroy
 
     redirect_to home_index_path

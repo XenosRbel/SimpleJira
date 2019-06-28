@@ -29,10 +29,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def asda
-
-  end
-
   def edit
     @task = Task.find(params[:id])
 
@@ -40,12 +36,10 @@ class TasksController < ApplicationController
   end
 
   def show
-    if params[:person_id]
-      #sad
-    elsif params[:id]
+	  if params[:id]
       @task = Task.find(params[:id])
       @user = @task.user
-    end
+	  end
 
     authorize! :show, @tasks
   end
@@ -59,6 +53,8 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
+    authorize! :create, @task
+
     if @task.save
       redirect_to @task
     else
@@ -68,6 +64,8 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+
+    authorize! :update, @task
 
     if @task.update(task_params)
       redirect_to tasks_path

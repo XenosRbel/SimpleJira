@@ -9,7 +9,6 @@ RSpec.describe PersonsController, type: :controller do
 
     it 'renders the index template with auth' do
       @request.env['devise.mapping'] = Devise.mappings[:user]
-
       sign_in(build_user, scope: :user)
 
       get :index
@@ -62,22 +61,5 @@ RSpec.describe PersonsController, type: :controller do
 
       expect(response.status).to eq(302)
     end
-  end
-
-  private
-
-  def build_user
-    User.create(
-        email: 'user@user.user',
-        password: 'test123456'
-    )
-  end
-
-  def build_admin
-    User.create(
-        email: 'user@user.user',
-        password: 'test123456',
-        admin: 1
-    )
   end
 end

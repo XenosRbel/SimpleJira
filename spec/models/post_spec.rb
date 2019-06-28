@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject {described_class.create}
+	subject do
+		described_class.create
+	end
 
   it 'should valid without valid attributes' do
     expect(subject).to_not be_valid
