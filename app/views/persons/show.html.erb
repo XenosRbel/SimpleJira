@@ -22,7 +22,7 @@
 <br/>
 
 <% if can? :edit, @user %>
-  <%= link_to 'Edit', edit_person_path(@user) %> |
+  <%= link_to 'Edit', edit_person_path(@user), class: 'btn btn-dark' %> |
 <% end %>
 
-<%= link_to 'Back', persons_path %>
+<%= link_to 'Back', persons_path, class: 'btn btn-primary' %>

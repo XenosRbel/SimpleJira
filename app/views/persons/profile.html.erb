@@ -1,7 +1,7 @@
 <h1>Persons#profile</h1>
 <p>Find me in app/views/persons/profile.html.erb</p>
 
-<table>
+<table class="table">
   <tr>
     <th>password</th>
     <th>first_name</th>
@@ -23,5 +23,5 @@
   </tr>
 </table>
 
-<%= link_to 'Edit', edit_person_path(current_user) %> |
-<%= link_to 'Back', persons_path %>
+<%= link_to 'Edit', edit_person_path(current_user), class: 'btn btn-dark' %>
+<%= link_to 'Back', persons_path, class: 'btn btn-primary' %>

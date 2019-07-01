@@ -2,10 +2,10 @@
 <p>Find me in app/views/persons/index.html.erb</p>
 
 <% if can? :manage, @users %>
-  <%= link_to 'New user', new_person_path %>
+  <%= link_to 'New user', new_person_path, class: "btn btn-secondary" %>
 <% end %>
 
-<table>
+<table class="table">
   <tr>
     <th>email</th>
     <th>Role</th>
@@ -26,12 +26,12 @@
       <td><%= user.updated_at %></td>
       <td><%= user.encrypted_password %></td>
 
-      <td><%= link_to 'Show', person_path(user) %></td>
+      <td><%= link_to 'Show', person_path(user), class: 'btn btn-primary' %></td>
 
       <% if can? :manage, @users %>
-        <td><%= link_to 'Edit', edit_person_path(user) %></td>
+        <td><%= link_to 'Edit', edit_person_path(user), class: 'btn btn-dark' %></td>
         <td><%= link_to 'Destroy', person_path(user), method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
       <% end %>
     </tr>
   <% end %>

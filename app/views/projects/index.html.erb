@@ -2,30 +2,37 @@
 <p>Find me in app/views/projects/index.html.erb</p>
 
 <% if can? :manage, @projects %>
-  <%= link_to 'New project', new_project_path %>
+  <%= link_to 'New project', new_project_path, class: "btn btn-secondary" %>
 <% end %>
-<p>
-<h3>project_where_user_haven't_task</h3>
-<table>
-  <% @project_where_user_havnt_task.each do |value| %>
-    <tr>
-      <td><%= value %></td>
-  <% end %>
-</table>
 
 <p>
   <%= @c_projects_with_task %> pcs. projects with tasks
-</P>
-
-<h2>Teams involved</h2>
-<table>
-  <% @teams_involved.each do |stat| %>
-    <tr>
-      <td><%= stat['name'] %></td>
-  <% end %>
-</table>
 </p>
-<table>
+
+<div class="d-flex justify-content-left">
+  <div class="card bg-light mb-3" style="max-width: 18rem; margin-right: 6px;">
+    <div class="card-body">
+      <h5 class="card-title">Project where user haven't task</h5>
+      <ul class="list-group list-group-flush">
+        <% @project_where_user_havnt_task.each do |value| %>
+          <li class="list-group-item"><%= value %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Teams involved</h5>
+      <ul class="list-group list-group-flush">
+        <% @teams_involved.each do |stat| %>
+          <li class="list-group-item"><%= stat['name'] %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Summary</th>
@@ -39,12 +46,12 @@
       <td><%= project.summary %></td>
       <td><%= project.start_date %></td>
       <td><%= project.end_date %></td>
-      <td><%= link_to 'Show', project_path(project) %></td>
+      <td><%= link_to 'Show', project_path(project), class: 'btn btn-primary' %></td>
 
       <% if can? :manage, @projects %>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Edit', edit_project_path(project), class: 'btn btn-dark' %></td>
         <td><%= link_to 'Destroy', project_path(project), method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
       <% end %>
     </tr>
   <% end %>

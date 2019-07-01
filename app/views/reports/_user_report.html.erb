@@ -1,4 +1,4 @@
 <div id="user-info"><p>
   Tasks for user <%= User.find(params[:user_id]).email %>, <%= @tasks.size%> pcs. |
-  <%= link_to 'Show', person_tasks_path(params[:user_id]) %>
+  <%= link_to 'Show', person_tasks_path(params[:user_id]), class: 'btn btn-primary' %>
 </p></div>

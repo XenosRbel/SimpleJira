@@ -1,4 +1,4 @@
 <div id="task-info"><p>
   Tasks with status <%= params[:status].to_s%>, <%= @tasks.size%> pcs. |
-  <%= link_to 'Show', task_by_filter_path(params[:status]) %>
+  <%= link_to 'Show', task_by_filter_path(params[:status]), class: 'btn btn-primary' %>
 </p></div>

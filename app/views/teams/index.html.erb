@@ -2,10 +2,10 @@
 <p>Find me in app/views/teams/index.html.erb</p>
 
 <% if can? :manage, @teams %>
-  <%= link_to 'New team', new_team_path %>
+  <%= link_to 'New team', new_team_path, class: "btn btn-secondary" %>
 <% end %>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
   </tr>
@@ -13,12 +13,12 @@
   <% @teams.each do |team| %>
     <tr>
       <td><%= team.name %></td>
-      <td><%= link_to 'Show', team_path(team) %></td>
+      <td><%= link_to 'Show', team_path(team), class: 'btn btn-primary' %></td>
 
       <% if can? :manage, @teams %>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
+        <td><%= link_to 'Edit', edit_team_path(team), class: 'btn btn-dark' %></td>
         <td><%= link_to 'Destroy', team_path(team), method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
       <% end %>
     </tr>
   <% end %>
