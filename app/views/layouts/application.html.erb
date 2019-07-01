@@ -15,12 +15,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <span class="notice"><%= notice %></span>
+  <span class="alert"><%= alert %></span>
 
     <p class="navbar-text pull-right">
       <% if user_signed_in? %>
-        <span>Здравствуйте, <%= current_user.email %></span>
+    <div class="alert alert-success" role="alert">
+      Здравствуйте, <%= current_user.email %>
+    </div>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>

@@ -1,13 +1,15 @@
 <h1>Projects#index</h1>
 <p>Find me in app/views/projects/index.html.erb</p>
 
+<div class="alert alert-info" role="alert">
+  <%= @c_projects_with_task %> pcs. projects with tasks
+</div>
+
 <% if can? :manage, @projects %>
   <%= link_to 'New project', new_project_path, class: "btn btn-secondary" %>
 <% end %>
 
-<p>
-  <%= @c_projects_with_task %> pcs. projects with tasks
-</p>
+<p/>
 
 <div class="d-flex justify-content-left">
   <div class="card bg-light mb-3" style="max-width: 18rem; margin-right: 6px;">

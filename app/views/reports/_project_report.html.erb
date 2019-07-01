@@ -1,4 +1,4 @@
-<div id="project-info"><p>
+<div id="project-info alert alert-info" class="alert alert-info">
   Tasks count for project <%= Project.find(params[:project_id]).name %>, <%= @tasks.size%> pcs. |
   <%= link_to 'Show', project_tasks_path(params[:project_id]), class: 'btn btn-primary' %>
-</p></div>
+</div>
