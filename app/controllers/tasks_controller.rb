@@ -92,8 +92,6 @@ class TasksController < ApplicationController
                                    :start_date,
                                    :due_date,
                                    :estimation,
-                                   :created_at,
-                                   :updated_at,
                                    :user_id,
                                    :project_id)
     end

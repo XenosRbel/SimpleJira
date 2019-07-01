@@ -43,9 +43,40 @@ RSpec.describe PostsController, type: :controller do
 		end
 	end
 	
-	describe 'post create' do
+	describe 'get edit' do
 		it 'should return to 302 without authorization' do
-			get :edit, params: {}
+			fake_post = FactoryBot.create(:post)
+			
+			get :edit, params: {id: fake_post.id}
+			expect(response.status).to eql(302)
+		end
+
+		it 'should return to 302 with authorization & role User' do
+			@request.env['devise.mapping'] = Devise.mappings[:user]
+			sign_in(build_user, scope: :user)
+			
+			fake_post = FactoryBot.create(:post)
+			
+			get :edit, params: {id: fake_post.id}
+			expect(response.status).to eql(302)
+		end
+
+		it 'should return to 200 with authorization & role Admin' do
+			@request.env['devise.mapping'] = Devise.mappings[:user]
+			sign_in(build_admin, scope: :user)
+			
+			fake_post = FactoryBot.create(:post)
+			
+			get :edit, params: {id: fake_post.id}
+			expect(response.status).to eql(200)
+		end
+	end
+	
+	describe 'delete destroy' do
+		it 'should return to 302 without authorization' do
+			fake_post = FactoryBot.create(:post)
+			
+			delete :destroy, params: {id: fake_post.id}
 			expect(response.status).to eql(302)
 		end
 		
@@ -53,20 +84,49 @@ RSpec.describe PostsController, type: :controller do
 			@request.env['devise.mapping'] = Devise.mappings[:user]
 			sign_in(build_user, scope: :user)
 			
-			get :edit, params: {}
+			fake_post = FactoryBot.create(:post)
+			
+			delete :destroy, params: {id: fake_post.id}
 			expect(response.status).to eql(302)
 		end
 		
-		it 'should return to 200 with authorization & role Admin' do
+		it 'should return to index with authorization & role Admin' do
 			@request.env['devise.mapping'] = Devise.mappings[:user]
 			sign_in(build_admin, scope: :user)
 			
-			get :edit, params: {}
-			expect(response.status).to eql(200)
+			fake_post = FactoryBot.create(:post)
+			
+			delete :destroy, params: {id: fake_post.id}
+			expect(response).to redirect_to('/posts')
 		end
 	end
 	
-	describe 'delete update' do
-	
+	describe 'post create' do
+		it 'should return to 302 without authorization' do
+			fake_project = FactoryBot.create(:project)
+			
+			post :create, params: {post: {content: 'ASD', project_id: fake_project.id}}
+			expect(response.status).to eql(302)
+		end
+		
+		it 'should return to 302 with authorization & role User' do
+			@request.env['devise.mapping'] = Devise.mappings[:user]
+			sign_in(build_user, scope: :user)
+			
+			fake_project = FactoryBot.create(:project)
+			
+			post :create, params: {post: {content: 'ASD', project_id: fake_project.id}}
+			expect(response.status).to eql(302)
+		end
+		
+		it 'should return to 302 with authorization & role Admin' do
+			@request.env['devise.mapping'] = Devise.mappings[:user]
+			sign_in(build_admin, scope: :user)
+			
+			fake_project = FactoryBot.create(:project)
+			
+			post :create, params: {post: {content: 'ASD', project_id: fake_project.id}}
+			expect(response.status).to eql(302)
+		end
 	end
 end

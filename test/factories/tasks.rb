@@ -7,6 +7,7 @@ FactoryBot.define do
 		start_date {"2019-06-19"}
 		due_date {"2019-08-19"}
 		estimation {1}
-		user {nil}
+		user {FactoryBot.create(:user)}
+		project {FactoryBot.create(:project)}
 	end
 end

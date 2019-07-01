@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should valid with valid attributes' do
+    subject = FactoryBot.create(:comment)
+    
+    expect(subject).to be_valid
+  end
+  
+  it 'should valid without valid attributes' do
+    subject = FactoryBot.create(:comment)
+    subject.content = ''
+    
+    expect(subject).to_not be_valid
+  end
 end
