@@ -12,25 +12,28 @@
       </ul>
     </div>
   <% end %>
-  <p>
+  <div class="form-group">
     <%= user.label :email %><br>
-    <%= user.email_field :email %>
-  </p>
-  <p>
+    <%= user.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= user.label :first_name %><br>
-    <%= user.text_field :first_name %>
-  </p>
-  <p>
+    <%= user.text_field :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= user.label :last_name %><br>
-    <%= user.text_field :last_name %>
-  </p>
-  <p>
+    <%= user.text_field :last_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= user.label :admin %><br>
-    <%= user.select :admin, User.admins.keys.to_a%>
-  </p>
+    <%= user.select :admin, User.admins.keys.to_a, {}, class: 'form-control' %>
+  </div>
 
   <p>
-    <%= user.submit %>
+    <%= user.submit class: 'btn btn-primary' %>
   </p>
 
 <% end %>

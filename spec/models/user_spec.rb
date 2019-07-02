@@ -5,9 +5,9 @@ RSpec.describe User, type: :model do
 
   it 'should valid with valid attributes' do
     subject.id = 1
-    subject.email = 'user1@user.user'
-    subject.first_name = 'First Name of user'
-    subject.last_name = 'Last Name of user'
+    subject.email = 'user1@users.users'
+    subject.first_name = 'First Name of users'
+    subject.last_name = 'Last Name of users'
     subject.admin = :User
     subject.password = '1234567890'
 
@@ -16,9 +16,9 @@ RSpec.describe User, type: :model do
 
   it 'should valid with password equal 6 symbol' do
     subject.id = 1
-    subject.email = 'user1@user.user'
-    subject.first_name = 'First Name of user'
-    subject.last_name = 'Last Name of user'
+    subject.email = 'user1@users.users'
+    subject.first_name = 'First Name of users'
+    subject.last_name = 'Last Name of users'
     subject.admin = :User
     subject.password = '123456'
 
@@ -27,9 +27,9 @@ RSpec.describe User, type: :model do
 
   it 'should valid with password less 6 symbol' do
     subject.id = 1
-    subject.email = 'user1@user.user'
-    subject.first_name = 'First Name of user'
-    subject.last_name = 'Last Name of user'
+    subject.email = 'user1@users.users'
+    subject.first_name = 'First Name of users'
+    subject.last_name = 'Last Name of users'
     subject.admin = :User
     subject.password = '12345'
 

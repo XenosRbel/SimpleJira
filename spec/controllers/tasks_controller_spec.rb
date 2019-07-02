@@ -8,8 +8,8 @@ RSpec.describe TasksController, type: :controller do
 		end
 		
 		it 'should return 200 with authorization' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			get :index
 			expect(response.status).to eql(200)
@@ -25,16 +25,16 @@ RSpec.describe TasksController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			get :edit, params: {id: fake_task.id, format: :html}
 			expect(response.status).to eql(302)
 		end
 		
 		it 'should return to 200 with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			get :edit, params: {id: fake_task.id, format: :html}
 			expect(response.status).to eql(200)
@@ -50,16 +50,16 @@ RSpec.describe TasksController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			delete :destroy, params: {id: fake_task.id}
 			expect(response.status).to eql(302)
 		end
 		
 		it 'should return to index with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			delete :destroy, params: {id: fake_task.id}
 			expect(response).to redirect_to('/tasks')
@@ -79,8 +79,8 @@ RSpec.describe TasksController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			fake_user = FactoryBot.create(:user)
 			
@@ -91,8 +91,8 @@ RSpec.describe TasksController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			fake_user = FactoryBot.create(:user)
 			

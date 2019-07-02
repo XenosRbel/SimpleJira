@@ -1,9 +1,9 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.user.email %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= comment.content %>
-</p>
+<br/>
+<div class="card">
+  <strong class="card-header">Commenter: <%= comment.user.email %></strong>
+  <div class="card-body">
+    <strong>Comment:</strong>
+    <%= comment.content %>
+  </div>
+</div>
+<br/>

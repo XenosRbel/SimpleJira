@@ -66,8 +66,8 @@ class TeamsController < ApplicationController
   private
 
   def bind_user_to_team
-    unless params[:team][:user].blank?
-      @user = User.find(params[:team][:user])
+    unless params[:team][:users].blank?
+      @user = User.find(params[:team][:users])
       @user.team_id = params[:id]
       @user.save
     end

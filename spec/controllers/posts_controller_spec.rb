@@ -8,8 +8,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return 200 with authorization' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			get :index
 			expect(response.status).to eql(200)
@@ -23,8 +23,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			
@@ -33,8 +33,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return to 200 with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			
@@ -52,8 +52,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			
@@ -62,8 +62,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 
 		it 'should return to 200 with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			
@@ -81,8 +81,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			
@@ -91,8 +91,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return to index with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			
@@ -110,8 +110,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role User' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			fake_project = FactoryBot.create(:project)
 			
@@ -120,8 +120,8 @@ RSpec.describe PostsController, type: :controller do
 		end
 		
 		it 'should return to 302 with authorization & role Admin' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_admin, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_admin, scope: :users)
 			
 			fake_project = FactoryBot.create(:project)
 			

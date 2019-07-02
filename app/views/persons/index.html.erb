@@ -2,7 +2,7 @@
 <p>Find me in app/views/persons/index.html.erb</p>
 
 <% if can? :manage, @users %>
-  <%= link_to 'New user', new_person_path, class: "btn btn-secondary" %>
+  <%= link_to 'New users', new_person_path, class: "btn btn-secondary" %>
 <% end %>
 
 <table class="table">
@@ -26,7 +26,23 @@
       <td><%= user.updated_at %></td>
       <td><%= user.encrypted_password %></td>
 
-      <td><%= link_to 'Show', person_path(user), class: 'btn btn-primary' %></td>
+      <td>
+        <a href="#" role="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-<%= user.id %>">Show</a>
+
+        <div class="modal" id="modal-<%= user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="container" style="background-color: white">
+            <div class="modal-body">
+              <%= render user %>
+            </div>
+            <div class="modal-footer">
+              <% if can? :edit, user %>
+                <%= link_to 'Edit', edit_person_path(user), class: 'btn btn-link' %> |
+              <% end %>
+              <button class="btn btn-link" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
+        </div>
+      </td>
 
       <% if can? :manage, @users %>
         <td><%= link_to 'Edit', edit_person_path(user), class: 'btn btn-dark' %></td>
@@ -35,4 +51,5 @@
       <% end %>
     </tr>
   <% end %>
+
 </table>

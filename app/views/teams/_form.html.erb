@@ -12,15 +12,17 @@
       </ul>
     </div>
   <% end %>
-  <p>
+  <div class="form-group">
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= form.collection_select :user, User.order(:email), :id, :email, include_blank: true %>
+  <div class="form-group">
+    <%= form.collection_select :users, User.order(:email), :id, :email, {}, class: 'form-control', include_blank: true %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
 
 <% end %>

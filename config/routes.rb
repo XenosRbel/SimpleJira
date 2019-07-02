@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'tasks/status/:status', to: 'tasks#index', as: 'task_by_filter'
 
-  devise_scope :user do
+  devise_scope :users do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end

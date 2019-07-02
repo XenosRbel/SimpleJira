@@ -4,7 +4,7 @@
     <inspection_tool class="ConvertOneChainedExprToSafeNavigation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RailsParamDefResolve" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RbenvGemsetsConfig" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="Rubocop" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="Rubocop" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="RubyArgCount" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RubyArgumentParentheses" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="RubyAssignmentExpressionInConditionalInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />

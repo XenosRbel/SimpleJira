@@ -10,8 +10,8 @@ RSpec.describe CommentsController, type: :controller do
 		end
 		
 		it 'should return 302 if try create comment with authorization' do
-			@request.env['devise.mapping'] = Devise.mappings[:user]
-			sign_in(build_user, scope: :user)
+			@request.env['devise.mapping'] = Devise.mappings[:users]
+			sign_in(build_user, scope: :users)
 			
 			fake_post = FactoryBot.create(:post)
 			

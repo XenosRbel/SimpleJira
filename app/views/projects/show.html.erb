@@ -25,7 +25,7 @@
 <br/>
 
 <% if can? :edit, @projects %>
-  <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-dark' %> |
+  <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-link' %> |
 <% end %>
 
-<%= link_to 'Back', projects_path, class: 'btn btn-primary' %>
+<%= link_to 'Back', projects_path, class: 'btn btn-link' %>

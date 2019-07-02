@@ -12,35 +12,28 @@
       </ul>
     </div>
   <% end %>
-  <p>
+  <div class="form-group">
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= form.label :summary %><br>
-    <%= form.text_area :summary %>
-  </p>
-  <p>
+    <%= form.text_area :summary, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= form.label :start_date %><br>
-    <%= form.date_field :start_date %>
-  </p>
-  <p>
+    <%= form.date_field :start_date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= form.label :end_date %><br>
-    <%= form.date_field :end_date %>
-  </p>
-
-  <%#= form.select(:tasks) do %>
-    <%# @task_list.each do |l| -%>
-      <%#= content_tag(:option, l.title, value: l.id) %>
-    <%# end %>
-  <%# end %>
-
-  <p>
+    <%= form.date_field :end_date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= form.label :team %><br>
-    <%= form.collection_select :team_id, Team.order(:name), :id, :name, include_blank: true %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= form.collection_select :team_id, Team.order(:name), :id, :name, {}, class: 'form-control', include_blank: true %>
+  </div>
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
 
 <% end %>
