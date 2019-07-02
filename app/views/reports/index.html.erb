@@ -1,7 +1,7 @@
 <h1>Reports#index</h1>
 <p>Find me in app/views/reports/index.html.erb</p>
 
-<div class="container">
+<div class="container-fluid">
   <h2>Project statistics</h2>
   <table class="table">
     <tr>
@@ -20,7 +20,7 @@
   </table>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="card">
     <h5 class="card-header">Show task count by filter</h5>
     <div class="card-body">
@@ -39,7 +39,7 @@
   </div>
 </div>
 <br/>
-<div class="container">
+<div class="container-fluid">
   <div class="card">
     <h5 class="card-header">Show task count for user</h5>
     <div class="card-body">
@@ -52,13 +52,13 @@
         <%= submit_tag "Search", class: 'btn btn-primary' %>
       <% end %>
     </div>
-    <div class="card-footer text-muted" id="user-report-results">
+    <div class="card-footer text-muted" id="users-report-results">
 
     </div>
   </div>
 </div>
 <br/>
-<div class="container">
+<div class="container-fluid">
   <div class="card">
     <h5 class="card-header">Show task count for project</h5>
     <div class="card-body">

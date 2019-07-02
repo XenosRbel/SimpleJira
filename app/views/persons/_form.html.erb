@@ -27,10 +27,12 @@
     <%= user.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= user.label :admin %><br>
-    <%= user.select :admin, User.admins.keys.to_a, {}, class: 'form-control' %>
-  </div>
+  <% if can? :manage, user %>
+    <div class="form-group">
+      <%= user.label :admin %><br>
+      <%= user.select :admin, User.admins.keys.to_a, {}, class: 'form-control' %>
+    </div>
+  <% end %>
 
   <p>
     <%= user.submit class: 'btn btn-primary' %>

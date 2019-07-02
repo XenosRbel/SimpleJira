@@ -2,7 +2,7 @@
 <p>Find me in app/views/persons/index.html.erb</p>
 
 <% if can? :manage, @users %>
-  <%= link_to 'New users', new_person_path, class: "btn btn-secondary" %>
+  <%= link_to 'New users', new_person_path, class: "btn btn-secondary mb-md-3" %>
 <% end %>
 
 <table class="table">
@@ -11,8 +11,6 @@
     <th>Role</th>
     <th>First name</th>
     <th>Last name</th>
-    <th>Created at</th>
-    <th>Updated at</th>
     <th>Password</th>
   </tr>
 
@@ -22,8 +20,6 @@
       <td><%= user.admin %></td>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.updated_at %></td>
       <td><%= user.encrypted_password %></td>
 
       <td>

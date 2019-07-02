@@ -6,31 +6,57 @@
 </div>
 
 <% if can? :manage, @projects %>
-  <%= link_to 'New project', new_project_path, class: "btn btn-secondary" %>
+  <%= link_to 'New project', new_project_path, class: "btn btn-secondary mb-md-3" %>
 <% end %>
 
 <p/>
 
-<div class="d-flex justify-content-left">
+<div class="d-flex">
   <div class="card bg-light mb-3" style="max-width: 18rem; margin-right: 6px;">
     <div class="card-body">
       <h5 class="card-title">Project where user haven't task</h5>
       <ul class="list-group list-group-flush">
-        <% @project_where_user_havnt_task.each do |value| %>
-          <li class="list-group-item"><%= value %></li>
+        <% @project_where_user_havnt_task.each_with_index do |value, i| %>
+          <% if i.to_i < 5 %>
+            <li class="list-group-item"><%= value %></li>
+          <% else %>
+            <div class="collapse" id="collapseProjects">
+              <li class="list-group-item"><%= value %></li>
+            </div>
+          <% end %>
         <% end %>
       </ul>
     </div>
+    <% if @project_where_user_havnt_task.size > 5 %>
+      <div class="card-footer text-muted">
+        <button class="btn btn-primary" data-toggle="collapse" href="#collapseProjects" role="button" aria-expanded="false" aria-controls="collapseProjects">
+          Show more
+        </button>
+      </div>
+    <% end %>
   </div>
   <div class="card bg-light mb-3" style="max-width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Teams involved</h5>
       <ul class="list-group list-group-flush">
-        <% @teams_involved.each do |stat| %>
-          <li class="list-group-item"><%= stat['name'] %></li>
+        <% @teams_involved.each_with_index do |stat, i| %>
+          <% if i.to_i < 5 %>
+            <li class="list-group-item"><%= stat['name'] %></li>
+          <% else %>
+            <div class="collapse" id="collapseTeams">
+              <li class="list-group-item"><%= stat['name'] %></li>
+            </div>
+          <% end %>
         <% end %>
       </ul>
     </div>
+    <% if @teams_involved.size > 5 %>
+      <div class="card-footer text-muted">
+        <button class="btn btn-primary" data-toggle="collapse" href="#collapseTeams" role="button" aria-expanded="false" aria-controls="collapseTeams">
+          Show more
+        </button>
+      </div>
+    <% end %>
   </div>
 </div>
 

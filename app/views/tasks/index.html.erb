@@ -2,7 +2,7 @@
 <p>Find me in app/views/task/index.html.erb</p>
 
 <% if can? :edit, @tasks %>
-  <%= link_to 'New task', new_task_path, class: 'btn btn-secondary' %>
+  <%= link_to 'New task', new_task_path, class: 'btn btn-secondary mb-md-3' %>
 <% end %>
 
 <% if params[:status]%>

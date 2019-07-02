@@ -13,7 +13,7 @@
   <span class="notice"><%= notice %></span>
   <span class="alert"><%= alert %></span>
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col navbar-text pull-right">
         <% if user_signed_in? %>
@@ -48,11 +48,7 @@
         <% end %>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
   </div>
   </body>
 </html>

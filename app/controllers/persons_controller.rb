@@ -24,7 +24,7 @@ class PersonsController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+	  @user = User.new(user_params_with_role)
 
     authorize! :create, @user
 
@@ -42,7 +42,9 @@ class PersonsController < ApplicationController
 	    authorize! :update, @user
     end
 
-    if @user.update(user_params)
+    param_for_role = current_user.admin.to_s == :Admin.to_s ? user_params_with_role : user_params_without_role
+
+    if @user.update(param_for_role)
       redirect_to persons_path
     else
       render 'edit'
@@ -60,7 +62,12 @@ class PersonsController < ApplicationController
   end
 
   private
-  def user_params
-    params.require(:users).permit(:admin, :first_name, :last_name, :email)
+	
+	  def user_params_without_role
+		  params.require(:user).permit(:first_name, :last_name, :email)
+	  end
+	
+	  def user_params_with_role
+		  params.require(:user).permit(:admin, :first_name, :last_name, :email)
   end
 end

@@ -9,5 +9,6 @@
       <td><%= @user.try(:email) %></td>
       <td><%= @user.try(:first_name) %></td>
       <td><%= @user.try(:last_name) %></td>
+      <td><%= link_to 'Show', user_path(@user), class: 'btn btn-primary' %></td>
     </tr>
 </table>
