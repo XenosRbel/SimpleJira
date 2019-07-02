@@ -1,4 +1,6 @@
 # README
+Admin email: 'admin@admin.admin', password: "admin1111". It's working if db setup for dev.
+
 
 задача: зрабіць на гітхабе(http://github.com) праект на рэйлс. 
 
